@@ -10,6 +10,17 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
+  mounted() {
+    this.viewSize();
+  },
+  methods: {
+    viewSize() {
+      debugger
+      let viewWidth = document.documentElement.clientWidth || document.body.clientWidth
+      let html = document.getElementsByTagName('html')[0]
+      html.style.fontSize = viewWidth / 10 + 'px'
+    }
+  },
   components: {
     HelloWorld
   }
