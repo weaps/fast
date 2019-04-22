@@ -1,0 +1,30 @@
+@keyframes spin-cube-right {
+  0% {
+    transform: rotateX(-33.5deg) rotateY(0deg)
+  }
+  to {
+    transform: rotateX(-33.5deg) rotateY(360deg)
+  }
+}
+@keyframes cube-up-down-1 {
+  0% {
+    transform: translateZ(0)
+  }
+  to {
+    transform: translate3d(0, -.5rem, 0)
+  }
+}
+@keyframes speed-line-anim {
+  0% {
+    opacity: 0;
+    transform: translateZ(0)
+  }
+  20% {
+    opacity: 1;
+    transform: translate3d(0, 40%, 0)
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 200%, 0)
+  }
+}

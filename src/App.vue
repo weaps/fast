@@ -1,28 +1,42 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <transition v-if="isLoaderShow">
+      <hello-world @loaderComplete="loaderComplete"></hello-world>
+    </transition>
+    <transition>
+      <cube-container></cube-container>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorld from './components/HelloWorld.vue';
+import cubeContainer from './pages/test';
 export default {
   name: 'app',
+  data() {
+    return {
+      isLoaderShow: true,
+      flag: false
+    }
+  },
   mounted() {
-    this.viewSize();
+    this.viewSize()
   },
   methods: {
     viewSize() {
-      debugger
       let viewWidth = document.documentElement.clientWidth || document.body.clientWidth
       let html = document.getElementsByTagName('html')[0]
       html.style.fontSize = viewWidth / 10 + 'px'
+    },
+    loaderComplete() {
+      this.isLoaderShow = false
     }
   },
   components: {
-    HelloWorld
+    HelloWorld,
+    cubeContainer
   }
 }
 </script>
@@ -34,6 +48,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>
