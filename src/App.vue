@@ -4,15 +4,16 @@
     <transition v-if="isLoaderShow">
       <hello-world @loaderComplete="loaderComplete"></hello-world>
     </transition>
-    <transition>
+    <div class="container">
       <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-          <custom-select></custom-select>
+          <custom-select :current-id='1'></custom-select>
         </div>
       </div>
-      <cube-container></cube-container>
-    </transition>
+    </div>
+    
+    <cube-container></cube-container>
   </div>
 </template>
 
