@@ -1,10 +1,19 @@
 <template>
-  <div class="cube-container">
-    <div class="cube-box">
-      <div class="cube__item front"></div>
-      <div class="cube__item back"></div>
-      <div class="cube__item top"></div>
+  <div class="loading">
+    <div class="con">
+      <div class="cube-1">
+        <div class="cube-side cube-side-front"></div>
+        <div class="cube-side cube-side-back"></div>
+        <div class="cube-side cube-side-left"></div>
+        <div class="cube-side cube-side-right"></div>
+        <div class="cube-side cube-side-top"></div>
+      </div>
     </div>
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+    <div class="progress-text">0%</div>
   </div>
 </template>
 <script>

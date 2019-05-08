@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+<!--    <img alt="Vue logo" src="./assets/logo.png">-->
     <transition v-if="isLoaderShow">
-      <hello-world @loaderComplete="loaderComplete"></hello-world>
+      <!-- <hello-world @loaderComplete="loaderComplete"></hello-world> -->
     </transition>
-    <transition>
-      <cube-container></cube-container>
-    </transition>
+    <slider></slider>
+    <!-- <cube-container></cube-container> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld';
+import Slider from './components/slider'
 import cubeContainer from './pages/test';
 export default {
   name: 'app',
@@ -35,8 +35,9 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    cubeContainer
+    // HelloWorld,
+    // cubeContainer,
+    Slider
   }
 }
 </script>
