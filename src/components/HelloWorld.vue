@@ -36,7 +36,7 @@ export default {
   methods: {
     progress() {
       this.num ++
-      if (this.num === 100) {
+      if (this.num === 1) {
         this.timer = null
         this.flag = true
         this.$emit('loaderComplete')

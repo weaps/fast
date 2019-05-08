@@ -5,6 +5,12 @@
       <hello-world @loaderComplete="loaderComplete"></hello-world>
     </transition>
     <transition>
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <custom-select></custom-select>
+        </div>
+      </div>
       <cube-container></cube-container>
     </transition>
   </div>
@@ -12,6 +18,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
+import CustomSelect from './components/custom-select/custom-select'
 import cubeContainer from './pages/test';
 export default {
   name: 'app',
@@ -36,7 +43,8 @@ export default {
   },
   components: {
     HelloWorld,
-    cubeContainer
+    cubeContainer,
+    CustomSelect
   }
 }
 </script>
