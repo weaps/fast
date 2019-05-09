@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+<!--    <img alt="Vue logo" src="./assets/logo.png">-->
     <transition v-if="isLoaderShow">
       <hello-world @loaderComplete="loaderComplete"></hello-world>
     </transition>
@@ -12,14 +12,16 @@
         </div>
       </div>
     </div>
-    
-    <cube-container></cube-container>
+    <!-- <hello-world @loaderComplete="loaderComplete"></hello-world> -->
+    <slider></slider>
+    <!-- <cube-container></cube-container> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import HelloWorld from './components/HelloWorld';
 import CustomSelect from './components/custom-select/custom-select'
+import Slider from './components/slider'
 import cubeContainer from './pages/test';
 export default {
   name: 'app',
@@ -43,9 +45,10 @@ export default {
     }
   },
   components: {
-    HelloWorld,
-    cubeContainer,
-    CustomSelect
+    CustomSelect,
+    // HelloWorld,
+    // cubeContainer,
+    Slider
   }
 }
 </script>

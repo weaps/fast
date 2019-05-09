@@ -38,6 +38,7 @@ export default {
       bind:function(el, binding, vnode) {
         document.addEventListener('click', function(e) {
           let ee = el.contains(e.target)
+          let tar = e.target
           let bb = binding
           let vn = vnode
           debugger

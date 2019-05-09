@@ -1,19 +1,19 @@
 <template>
   <div class="loading">
-    <div class="c-cube-1">
-      <div class="c-cube">
-        <div class="c-cube__side test front"></div>
-        <div class="c-cube__side test back"></div>
-        <div class="c-cube__side test left"></div>
-        <div class="c-cube__side test right"></div>
-        <div class="c-cube__side top"></div>
+    <div class="con">
+      <div class="cube-1">
+        <div class="cube-side cube-side-front"></div>
+        <div class="cube-side cube-side-back"></div>
+        <div class="cube-side cube-side-left"></div>
+        <div class="cube-side cube-side-right"></div>
+        <div class="cube-side cube-side-top"></div>
       </div>
     </div>
     <div class="line line-1"></div>
     <div class="line line-2"></div>
     <div class="line line-3"></div>
     <div class="line line-4"></div>
-    <div class="progress-text origin-font">{{num}}%</div>
+    <div class="progress-text">{{num}}%</div>
   </div>
 </template>
 
@@ -37,9 +37,10 @@ export default {
     progress() {
       this.num ++
       if (this.num === 1) {
-        this.timer = null
-        this.flag = true
-        this.$emit('loaderComplete')
+        clearTimeout(this.timer)
+        // this.timer = null
+        // this.flag = true
+        // this.$emit('loaderComplete')
       }
     }
   },

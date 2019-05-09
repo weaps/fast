@@ -1,147 +1,106 @@
 @import './keyframes.styl'
 rem($px)
   $px / 37.5 rem
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
 html,
 body
-  height 100%
-*
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: 0;
-
+  width: 100%
+  height: 100%
 .loading
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #fff;
-  z-index: 110
-  &.loading.complete
-    animation: loading-anim .5s both
-  .progress-text
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin-top: 1.86667rem;
-    width: 100%;
-    color: #ff1224;
-    font-size: .24rem;
-    text-align: center
-  .c-cube
-    font-size: .8rem;
-    transform: rotateX(-33.5deg) rotateY(45deg);
-    transform-origin: .5em .5em;
-    transform-style: preserve-3d;
-    animation: spin-cube-right 2.2s linear infinite;
-  .c-cube__side
-    height: 1em;
-    position: absolute;
-    width: 1em
-  .c-cube__side--left,
-  .c-cube__side--right
-    backface-visibility: hidden;
-    border: 1px solid;
-    border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%;
-    border-top: none;
-    border-bottom: none;
-    height: 5em
-  .c-cube__side--back,
-  .c-cube__side--front
-    backface-visibility: hidden;
-    border: 1px solid;
-    border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%;
-    border-top: none;
-    border-bottom: none;
-    height: 5em
-  .c-cube__side--front
-    border-image: linear-gradient(180deg, #ff1224, rgba(255, 18, 36, 0)) 2 100%
-    background #eeeeee
-  .c-cube__side--bottom,
-  .c-cube__side--top
-    border: 1px solid #ff1224;
-    background: #fff
-  .c-cube__side--front
-    transform: translateZ(.5em)
-  .c-cube__side--back
-    transform: translateZ(-.5em)
-  .c-cube__side--right
-    transform: rotateY(90deg) translateZ(.5em)
-  .c-cube__side--left
-    transform: rotateY(-90deg) translateZ(.5em)
-  .c-cube__side--top
-    transform: rotateX(90deg) translateZ(.5em)
-  .c-cube-1
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -2.13333rem;
-    margin-left: -.4rem;
-    animation: cube-up-down-1 .8s ease-in-out infinite alternate;
-  .c-cube-3,
-  .line {
-    position: absolute;
-    top: 50%;
-    left: 50%
-  }
-  .line {
-    width: 1px;
-    height: 1.33333rem;
-    background: linear-gradient(-180deg, #ff1224, rgba(255, 18, 36, 0));
-    animation: speed-line-anim 1.2s linear infinite both
-  }
-
-  .line-1 {
-    margin-top: -2.4rem;
-    margin-left: -1.33333rem;
-    animation-delay: .2s;
-    animation-duration: 1.5s
-  }
-  .line-2 {
-    margin-left: -.8rem;
-    margin-top: -2.13333rem;
-    animation-delay: .1s;
-    animation-duration: 1s
-  }
-  .line-3 {
-    margin-left: .4rem;
-    margin-top: -1.86667rem;
-    animation-delay: .6s;
-    animation-duration: 1.4s
-  }
-  .line-4 {
-    margin-left: 1.06667rem;
-    margin-top: -2.4rem;
-    animation-delay: .8s
-  }
-  .test
-    height 1em
-    width 1em
-    border: 1px solid
-    border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%
-    background-color #ffffff
-  .front,
-  .back,
-  .left,
-  .right
-    height 5em
-  .front
-    transform translateZ(.5em)
-  .back
-    transform translateZ(-.5em)
-  .left
-    transform: rotateY(90deg) translateZ(.5em)
-    // background-color #000
-  .right
-    transform: rotateY(90deg) translateZ(-.5em)
-  .top
+  position: absolute
+  left: 50%
+  top: 50%
+  height: rem(150)
+  transform: translate(-50%, -50%)
+  .con
     position: absolute
-    height 1em
-    width 1em
-    border: 1px solid #ff1224
-    background-color #ffffff
-    transform rotateX(90deg) translateZ(.5em)
+    width: rem(75)
+    height: rem(150)
+    animation: cube-up-down 1s ease-in-out infinite alternate
+  .cube-1
+    position: absolute
+    // width: 2em
+    // height: 5em
+    text-align: center
+    transform: rotateX(-33deg) rotateY(45deg)
+    transform-origin: rem(15) rem(15)
+    transform-style: preserve-3d
+    animation: cube-x-right 1.2s linear infinite
+    // background: rgba(100, 100, 100, 1)
+    .cube-side
+      position: absolute
+      width: rem(30)
+      height: rem(30)
+    .cube-side-front,
+    .cube-side-back,
+    .cube-side-left,
+    .cube-side-right
+      backface-visibility: hidden
+      border: 1px solid
+      border-image: linear-gradient(#ff1224, rgba(255, 18, 36, 0)) 2 100%
+      border-top: none
+      border-bottom: none
+      height: rem(150)
+    .cube-side-left
+      backface-visibility: hidden
+      transform: rotateY(-90deg) translateZ(rem(15))
+    .cube-side-right
+      transform: rotateY(90deg) translateZ(rem(15))
+    .cube-side-top
+      border: 1px solid rgba(255, 18, 36, 1)
+      // transform: translateZ(18px)
+      transform: rotateX(90deg) translateZ(rem(15))
+    // transform: rotateX(90deg) translateZ(.5em);
+    // background: rgba(255, 18, 36, .4)
+    .cube-side-front
+      transform: translateZ(rem(15))
+    .cube-side-back
+      transform: translateZ(rem(-15))
+  .line
+    position: absolute
+    left: 50%
+    top: 40%
+    width: 1px
+    height: rem(50)
+    background: linear-gradient(rgba(255, 18, 36, .6), rgba(255, 18, 36, 0))
+    animation: rians 1.2s linear infinite both
+    &.line-1
+      margin-left: rem(-50)
+      margin-top: rem(-90)
+      animation-duration: 1.5s
+      animation-delay: .2s
+    &.line-2
+      margin-left: rem(-30)
+      margin-top: rem(-80)
+      animation-duration: 1s
+      animation-delay: .1s
+    &.line-3
+      margin-left: rem(50)
+      margin-top: rem(-75)
+      animation-delay: .6s
+      animation-duration: 1.4s
+    &.line-4
+      margin-left: rem(68)
+      margin-top: rem(-90)
+      animation-delay: .8s
+  .progress-text
+    position: absolute
+    top: 55%
+    left: 0
+    margin-top: rem(70)
+    width: 100%
+    color: #ff1224
+    font-size: rem(9)
+    text-align: center
+.welcome
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  transition background 1s linear 1s
+  background rgba(255, 18, 36, 1)
+  //.slongen
