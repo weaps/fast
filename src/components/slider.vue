@@ -19,7 +19,8 @@ export default {
       active: 0,
       time: null,
       leaveToCalss: '',
-      interval: 3000
+      interval: 3000,
+      arr: [1,2,3]
     }
   },
   computed: {
@@ -29,8 +30,12 @@ export default {
   },
   mounted() {
     this.init()
+    window.console.log(this.splice(this.arr, 2))
   },
   methods: {
+    splice(arr, index) {
+      return index += index >= 0 ? 0 : arr.length - 1
+    },
     init() {
       const listType = Object.prototype.toString.call(this.list)
       for (var i = 0; i < this.imgLen; i++) {}
@@ -44,7 +49,7 @@ export default {
       }
     },
     carouselAnimation() {
-      if(!this.isCarousel) {
+      if(!this.isCarousel) { 
         this.move(1)
       }
       setTimeout(this.carouselAnimation.bind(this), this.interval)
