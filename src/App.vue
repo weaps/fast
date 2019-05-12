@@ -2,8 +2,17 @@
   <div id="app">
 <!--    <img alt="Vue logo" src="./assets/logo.png">-->
     <transition v-if="isLoaderShow">
-      <!-- <hello-world @loaderComplete="loaderComplete"></hello-world> -->
+      <hello-world @loaderComplete="loaderComplete"></hello-world>
     </transition>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+          <custom-select :current-id='1'></custom-select>
+        </div>
+      </div>
+    </div>
+    <!-- <hello-world @loaderComplete="loaderComplete"></hello-world> -->
     <slider></slider>
     <!-- <cube-container></cube-container> -->
   </div>
@@ -11,6 +20,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import CustomSelect from './components/custom-select/custom-select'
 import Slider from './components/slider'
 import cubeContainer from './pages/test';
 export default {
@@ -35,6 +45,7 @@ export default {
     }
   },
   components: {
+    CustomSelect,
     // HelloWorld,
     // cubeContainer,
     Slider
