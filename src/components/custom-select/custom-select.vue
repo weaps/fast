@@ -4,17 +4,19 @@
       {{title}}
       <i :class="['glyphicon', isShow ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down']"></i>
     </div>
-    <ul class="select-ul" v-show="isShow">
-      <li
-        class="li-item"
-        v-for="item of list"
-        :key="item.id"
-        :class="id === item.id ? 'selected' : ''"
-        @click.stop="clickSelect(item)"
-      >
-        {{item.name}}
-      </li>
-    </ul>
+    <transition name="fade">
+      <ul class="select-ul" v-show="isShow">
+        <li
+                class="li-item"
+                v-for="item of list"
+                :key="item.id"
+                :class="id === item.id ? 'selected' : ''"
+                @click.stop="clickSelect(item)"
+        >
+          {{item.name}}
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 <script>
@@ -30,18 +32,16 @@ export default {
   created() {
     this.currentIdCon()
   },
-  mounted() {
-    let that = this
-  },
+  mounted() {},
   directives: {
     clickHide: {
       bind:function(el, binding, vnode) {
-        document.addEventListener('click', function(e) {
-          let ee = el.contains(e.target)
-          let tar = e.target
-          let bb = binding
-          let vn = vnode
-          debugger
+        document.addEventListener('click', function() {
+          // let ee = el.contains(e.target)
+          // let tar = e.target
+          // let bb = binding
+          // let vn = vnode
+          window.console.log(`el:${el}----vnode${vnode}`)
           binding.value()
         })
       }
@@ -126,10 +126,21 @@ export default {
     left 0
     top 34px
     width 100%
+    background #fff
     box-shadow 0 0 3px rgba(100, 100, 100, .3)
     .li-item
       line-height 30px
+      list-style-type none
+      cursor pointer
       &.selected
         background #eeeeee
         color #333
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+  transition top .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  top 34px
+}
 </style>
